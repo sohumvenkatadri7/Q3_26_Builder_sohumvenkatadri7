@@ -1,0 +1,15 @@
+node_modules/
+.env
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.development
+.env.test
+.env.production
+
+devnet-wallet.json
+images-cat.jpeg
+
+wallet.json
