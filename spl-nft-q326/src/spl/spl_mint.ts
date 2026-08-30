@@ -30,7 +30,7 @@ const rpcSubscriptions = createSolanaRpcSubscriptions(
 const token_decimals = 1_000_000n;
 
 //paste your mint address got from spl_init.ts
-const mint = address("E2Jazz2VXcVL9RZkn6ZFA4q1YGvgEvrns3Gr6w72DC4w");
+const mint = address("4xaTz8bEzFaYE1eXpaVS5R1GVAafZxiCXt6Phnu7Ka3r");
 
 (async () => {
   try {
@@ -43,8 +43,19 @@ const mint = address("E2Jazz2VXcVL9RZkn6ZFA4q1YGvgEvrns3Gr6w72DC4w");
     });
     console.log(`Your ata is : ${ata}`);
 
-    // const createAtaIx =
-    // const mintToIx =
+    const createAtaIx = await getCreateAssociatedTokenInstructionAsync({
+      payer: signer,
+      ata,
+      owner: signer.address,
+      mint,
+      tokenProgram: TOKEN_PROGRAM_ADDRESS,
+    });
+    const mintToIx = getMintToInstruction({
+      mint,
+      token: ata,
+      mintAuthority: signer,
+      amount: token_decimals,
+    });
 
     const { value: latestBlockhash } = await rpc.getLatestBlockhash().send();
 
@@ -57,26 +68,30 @@ const mint = address("E2Jazz2VXcVL9RZkn6ZFA4q1YGvgEvrns3Gr6w72DC4w");
       msgWithPayer,
     );
 
-    // const txMessage = appendTransactionMessageInstructions(
-    //   [createAtaIx, mintToIx],
-    //   msgWithLiftime,
-    // );
+    const txMessage = appendTransactionMessageInstructions(
+      [createAtaIx, mintToIx],
+      msgWithLiftime,
+    );
 
-    // const signedTx = await signTransactionMessageWithSigners(txMessage);
+    const signedTx = await signTransactionMessageWithSigners(txMessage);
 
-    // assertIsTransactionWithBlockhashLifetime(signedTx);
+    assertIsTransactionWithBlockhashLifetime(signedTx);
 
-    // const signature = getSignatureFromTransaction(signedTx);
+    const signature = getSignatureFromTransaction(signedTx);
 
-    // const sendAndConfirm = sendAndConfirmTransactionFactory({
-    //   rpc,
-    //   rpcSubscriptions,
-    // });
+    const sendAndConfirm = sendAndConfirmTransactionFactory({
+      rpc,
+      rpcSubscriptions,
+    });
 
-    // await sendAndConfirm(signedTx, { commitment: "confirmed" });
+    await sendAndConfirm(signedTx, { commitment: "confirmed" });
 
-    // console.log(`mint txid: ${signature}`);
+    console.log(`mint txid: ${signature}`);
   } catch (error) {
     console.log(error);
   }
+
 })();
+
+//Your ata is : B4uNhMYZmAqS9sDRRKL7ytg6sFkbKwqBfWM37HMQrr59
+//mint txid: 3FESe6qGaHHiVefBcWCkfRLJHTLqTgLEcHhePiYkPoCC7CJry2W9k34Xprbg5xLTqMaxrjV8AcdyMUY8wi4GDyn2
