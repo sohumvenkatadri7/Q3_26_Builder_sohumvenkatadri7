@@ -77,6 +77,9 @@ Creates a new SPL Token mint account with **6 decimals** using `@solana/kit` and
   ```
 - **Solana Explorer:** [View Mint Initialization Transaction](https://explorer.solana.com/tx/2PknoC661jNHZR9zQtCuVUY8R5iSxLCVbM1aroWpL9ZJCGUFCdJsbzxesD9VTXe6yXcBaKWAmmt1cZD1gwJkweY8?cluster=devnet)
 
+<img width="1496" height="517" alt="Screenshot 2026-08-31 015239" src="https://github.com/user-attachments/assets/33559dd7-dc7e-479e-ad96-5bd1f6e27660" />
+
+
 ---
 
 ### 1.2 Create Token Metadata
@@ -91,6 +94,9 @@ Attaches token metadata (`Turbin3 Sohum`, symbol `TURB3`) to the newly created m
   signature:  3pukoPCpzMqGXcFmMSsH5tZPu9BF1ocaDKMyE7Q2Pqn5phQSbh7syAfD52pTZLyJGzq2r5Zz4XNvB96J2cVKvCdg
   ```
 - **Solana Explorer:** [View Metadata Creation Transaction](https://explorer.solana.com/tx/3pukoPCpzMqGXcFmMSsH5tZPu9BF1ocaDKMyE7Q2Pqn5phQSbh7syAfD52pTZLyJGzq2r5Zz4XNvB96J2cVKvCdg?cluster=devnet)
+
+<img width="1485" height="497" alt="Screenshot 2026-08-31 021245" src="https://github.com/user-attachments/assets/ddbc55a5-699b-4e4d-84ae-d2b46707d201" />
+
 
 ---
 
@@ -108,6 +114,9 @@ Finds or derives the sender's ATA, initializes it, and mints `1,000,000` base un
   ```
 - **Solana Explorer:** [View Mint-To Transaction](https://explorer.solana.com/tx/3FESe6qGaHHiVefBcWCkfRLJHTLqTgLEcHhePiYkPoCC7CJry2W9k34Xprbg5xLTqMaxrjV8AcdyMUY8wi4GDyn2?cluster=devnet)
 
+<img width="1362" height="547" alt="Screenshot 2026-08-31 021313" src="https://github.com/user-attachments/assets/c63b99bc-d223-42d2-8bbe-230a4c5554c0" />
+
+
 ---
 
 ### 1.4 Transfer Tokens (ATA to ATA)
@@ -124,6 +133,9 @@ Derives the recipient ATA (`3X3MD9BFHBnGwki3XQ9GLCJSAfrnSewzQTrf4MKrmg9V`), crea
   mint txid: 22QRaYPcVLU1mFANgQ2ZP5zior4RCTkKZuoreiPQVgdBN6g1ZpUHtJ3UGZjkXuoJ4sgNeYv3epELxVbE9C16mV1d
   ```
 - **Solana Explorer:** [View Token Transfer Transaction](https://explorer.solana.com/tx/22QRaYPcVLU1mFANgQ2ZP5zior4RCTkKZuoreiPQVgdBN6g1ZpUHtJ3UGZjkXuoJ4sgNeYv3epELxVbE9C16mV1d?cluster=devnet)
+
+<img width="1350" height="455" alt="Screenshot 2026-08-31 022147" src="https://github.com/user-attachments/assets/9b44ebbb-4bf6-42d8-92ed-1dfb9aaea6c1" />
+
 
 ---
 
@@ -158,6 +170,9 @@ Uploads `generug.png` to Irys Devnet storage.
   ```
 - **Gateway Link:** [View Image on Irys Gateway](https://gateway.irys.xyz/ChuxR64wx8qjnAQf18ZiUmvhFaxqdg4xrYZYCypes3vz)
 
+<img width="1342" height="345" alt="Screenshot 2026-09-02 231638" src="https://github.com/user-attachments/assets/1d894f4e-af16-4f57-92fc-965acba20bf6" />
+
+
 ---
 
 ### 2.2 Upload NFT Metadata JSON
@@ -172,6 +187,9 @@ Uploads the standardized Metaplex Core JSON metadata referencing the uploaded im
   metadata uri: https://gateway.irys.xyz/DQMA7LAWABboLnfBQNgimsKkEgxm54aHCA9hPNfpCNoC
   ```
 - **Gateway Link:** [View Metadata JSON on Irys Gateway](https://gateway.irys.xyz/DQMA7LAWABboLnfBQNgimsKkEgxm54aHCA9hPNfpCNoC)
+
+<img width="1266" height="305" alt="Screenshot 2026-09-02 231659" src="https://github.com/user-attachments/assets/37a5c468-af85-4930-9cdb-e3058507f22d" />
+
 
 ---
 
@@ -188,6 +206,9 @@ Mints the NFT asset with the initial name `SohumRug` pointing to the Irys metada
   ```
 - **Solana Explorer:** [View NFT Mint Transaction](https://explorer.solana.com/tx/3JYHS8nfCr6UBPR5ifgcGDi3hAeM2Ryztq9oGAoEVidvCWmn71GDVuNyu2wcwGrFacmtVLbmuF62scMFLH7HptZ6?cluster=devnet)
 - **Asset Address:** [3UPbs9SRNYMwRMm2r5B4EFAJx1YseP2WUrVGoeqP5MFR](https://explorer.solana.com/address/3UPbs9SRNYMwRMm2r5B4EFAJx1YseP2WUrVGoeqP5MFR?cluster=devnet)
+
+<img width="1868" height="930" alt="Screenshot 2026-09-02 232028" src="https://github.com/user-attachments/assets/36320b9b-cfac-4f1a-a41c-c63a1c914b96" />
+<img width="1751" height="152" alt="Screenshot 2026-09-02 231840" src="https://github.com/user-attachments/assets/1bacfe1d-2b89-4987-8eec-cdcd1608c6c2" />
 
 ---
 
@@ -207,6 +228,10 @@ As the update authority, fetches the existing asset from chain, uploads new upda
   ```
 - **New Metadata Gateway:** [View Updated Metadata on Irys](https://gateway.irys.xyz/8EBNB6W7W64uTbKx31efXUjb5K6KZ2npVH6LMMRGShhL)
 - **Solana Explorer:** [View NFT Update Transaction](https://explorer.solana.com/tx/2jgzTJyg3jMPsmpng3t8VjZX13eRcjUqtCzNZjcqS9EFKUJd72dAZetzdjQTnSpEF7q5wdwYjWZqFdKkWiw1SLup?cluster=devnet)
+
+<img width="1881" height="882" alt="Screenshot 2026-09-02 232526" src="https://github.com/user-attachments/assets/9f3c7fe6-8aae-4797-bad5-cc49b8b51e83" />
+<img width="1548" height="367" alt="Screenshot 2026-09-02 232353" src="https://github.com/user-attachments/assets/b5a693bc-c252-4189-8cd1-dacff9d54e74" />
+
 
 ---
 
