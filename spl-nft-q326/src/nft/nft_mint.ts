@@ -22,16 +22,23 @@ umi.use(mplCore());
 (async () => {
   try {
     const metadataUri =
-      "https://gateway.irys.xyz/BihKZnhMCvxN3i34cv25eEyFgUvBVGJQn1Gp11D4LxEi ";
+      "https://gateway.irys.xyz/DQMA7LAWABboLnfBQNgimsKkEgxm54aHCA9hPNfpCNoC";
     const asset = generateSigner(umi);
 
     //add you nft name and metadata uri
-    // const tx = await create()
+    const tx = await create(umi, {
+      asset,
+      name: "SohumRug",
+      uri: metadataUri,
+    }).sendAndConfirm(umi)
 
-    // const signature = base58.deserialize(tx.signature)[0];
+    const signature = base58.deserialize(tx.signature)[0];
 
-    // console.log(`signature ${signature} , asset : ${asset.publicKey}`);
+    console.log(`signature ${signature} , asset : ${asset.publicKey}`);
   } catch (e) {
     console.log(`errior ${e}`);
   }
 })();
+
+//signature 3JYHS8nfCr6UBPR5ifgcGDi3hAeM2Ryztq9oGAoEVidvCWmn71GDVuNyu2wcwGrFacmtVLbmuF62scMFLH7HptZ6
+//asset : 3UPbs9SRNYMwRMm2r5B4EFAJx1YseP2WUrVGoeqP5MFR

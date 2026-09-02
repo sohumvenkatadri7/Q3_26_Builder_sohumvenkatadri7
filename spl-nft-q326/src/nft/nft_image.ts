@@ -27,14 +27,17 @@ umi.use(signerIdentity(signer));
 (async () => {
   try {
     //chanege image path to your image path
-    const image = await readFile("file-path");
+    const image = await readFile("/root/Q3_26_Builder_sohumvenkatadri7/spl-nft-q326/generug.png");
 
     //change the image name and mime type
-    // const file =
+    const file = await createGenericFile(image, "generug (1).png", {contentType: "image/png"})
 
-    // const [myUri] =
-    // console.log("Your image URI: ", myUri);
+    const [myUri] = await umi.uploader.upload([file])
+    console.log("Your image URI: ", myUri);
   } catch (error) {
     console.log(error);
   }
 })();
+
+
+//Your image URI:  https://gateway.irys.xyz/ChuxR64wx8qjnAQf18ZiUmvhFaxqdg4xrYZYCypes3vz
