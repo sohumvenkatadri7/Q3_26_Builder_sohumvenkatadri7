@@ -12,7 +12,9 @@
     "nft:image": "npx ts-node src/nft/nft_image.ts",
     "nft:metadata": "npx ts-node src/nft/nft_metadata.ts",
     "nft:mint": "npx ts-node src/nft/nft_mint.ts",
-    "nft:update": "npx ts-node src/nft/nft_update.ts"
+    "nft:update": "npx ts-node src/nft/nft_update.ts",
+    "nft:transfer": "npx ts-node src/nft/nft_transfer.ts",
+    "nft:getsignature":"npx ts-node src/nft/get_tx.ts"
   },
   "keywords": [],
   "author": "",
