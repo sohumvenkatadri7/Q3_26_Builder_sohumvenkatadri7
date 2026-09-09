@@ -270,23 +270,8 @@ cargo test
 
 ### Modular Test Breakdown
 
-```
-running tests/test_initialize.rs
-test test_initialize ... ok
+<img width="1312" height="466" alt="Screenshot 2026-09-06 005156" src="https://github.com/user-attachments/assets/370e5abb-f7ef-4cc6-b87e-22e1262237b4" />
 
-running tests/test_deposit.rs
-test test_deposit ... ok
-test test_deposit_zero_fails ... ok
-
-running tests/test_withdraw.rs
-test test_withdraw ... ok
-test test_withdraw_zero_fails ... ok
-
-running tests/test_close.rs
-test test_close ... ok
-
-test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.4s
-```
 
 1. **[`test_initialize.rs`](programs/vault/tests/test_initialize.rs)**:
    - Sets up LiteSVM environment, loads compiled `vault.so`, and airdrops 2 SOL to user.
