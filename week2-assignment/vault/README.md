@@ -270,7 +270,9 @@ cargo test
 
 ### Modular Test Breakdown
 
-<img width="1312" height="466" alt="Screenshot 2026-09-06 005156" src="https://github.com/user-attachments/assets/370e5abb-f7ef-4cc6-b87e-22e1262237b4" />
+<img width="1148" height="356" alt="Screenshot 2026-09-09 132313" src="https://github.com/user-attachments/assets/300f5643-8f7e-4a2e-a85c-9927b2bff72c" />
+<img width="1168" height="602" alt="Screenshot 2026-09-09 132302" src="https://github.com/user-attachments/assets/334eb31a-bfde-4458-ac52-c4fc8d3464c8" />
+
 
 
 1. **[`test_initialize.rs`](programs/vault/tests/test_initialize.rs)**:
