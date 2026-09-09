@@ -100,9 +100,9 @@ pub struct VaultState {
 ### 2. PDA Derivations & Seeds
 
 - **State Account PDA (`vault_state`)**:
-  $$\text{Seeds} = \left[\texttt{b"state"},\; \text{user.key}()\right]$$
+  `Seeds = [b"state", user.key().as_ref()]`
 - **Vault SystemAccount PDA (`vault`)**:
-  $$\text{Seeds} = \left[\texttt{b"vault"},\; \text{user.key}()\right]$$
+  `Seeds = [b"vault", user.key().as_ref()]`
 
 ---
 

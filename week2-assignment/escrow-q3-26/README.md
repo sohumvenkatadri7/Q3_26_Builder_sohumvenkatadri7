@@ -92,9 +92,9 @@ The `Escrow` account holds the parameters governing the swap:
 ### 2. PDA Derivations
 
 - **Escrow PDA**:
-  $$\text{Seeds} = \left[\texttt{b"escrow"},\; \text{maker.key}(),\; \text{seed}.\text{to\_le\_bytes}()\right]$$
+  `Seeds = [b"escrow", maker.key().as_ref(), seed.to_le_bytes().as_ref()]`
 - **Vault Token Account (ATA)**:
-  $$\text{Address} = \text{get\_associated\_token\_address}(\text{escrow\_pda},\; \text{mint\_a})$$
+  `Address = get_associated_token_address(escrow_pda, mint_a)`
 
 ---
 
@@ -254,9 +254,9 @@ The timed mechanism solves the common counterparty risk where a trade is left pe
 2. **Clock Sysvar Verification**:
    The program queries `Clock::get()?.unix_timestamp` directly from the Solana runtime.
 3. **Strict Time Boundaries**:
-   - **`take`**: Requires $T_{\text{current}} \le T_{\text{expiration}}$.
-   - **`refund`**: Requires $T_{\text{current}} > T_{\text{expiration}}$.
-   - **`make` / `update`**: Requires $T_{\text{new\_expiration}} > T_{\text{current}}$.
+   - **`take`**: Requires `current_time <= expiration`.
+   - **`refund`**: Requires `current_time > expiration`.
+   - **`make` / `update`**: Requires `new_expiration > current_time`.
 
 ---
 
@@ -266,9 +266,9 @@ Custom error codes defined in `programs/escrowq32026/src/error.rs`:
 
 | Error Code | Error Message | Trigger Condition |
 | :--- | :--- | :--- |
-| `EscrowExpired` | `"The escrow has already expired."` | Attempting `take` when $T_{\text{current}} > T_{\text{expiration}}$ |
-| `InvalidExpiration` | `"The escrow expiration time must be in the future."` | Calling `make` or `update` with $T_{\text{expiration}} \le T_{\text{current}}$ |
-| `EscrowNotExpired` | `"The escrow has not expired yet."` | Calling `refund` when $T_{\text{current}} \le T_{\text{expiration}}$ |
+| `EscrowExpired` | `"The escrow has already expired."` | Attempting `take` when `current_time > expiration` |
+| `InvalidExpiration` | `"The escrow expiration time must be in the future."` | Calling `make` or `update` with `expiration <= current_time` |
+| `EscrowNotExpired` | `"The escrow has not expired yet."` | Calling `refund` when `current_time <= expiration` |
 
 ---
 
@@ -297,32 +297,32 @@ test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
 1. **`test_make_and_refund`**:
    - Creates Mint A & Mint B, funds Maker ATA with 1,000 Token A.
-   - Maker calls `make` with 10 Token A deposit and deadline $T = 17780206209$.
+   - Maker calls `make` with 10 Token A deposit and deadline `T = 17780206209`.
    - Verifies Vault PDA receives 10 Token A and Escrow state is properly initialized.
-   - Advances LiteSVM Clock sysvar past expiration ($T = 17780206210$).
+   - Advances LiteSVM Clock sysvar past expiration (`T = 17780206210`).
    - Maker executes `refund`.
    - Asserts Escrow PDA and Vault PDA are closed and Maker's balance is 100% restored (1,000 Token A).
 
 2. **`test_make_and_take`**:
    - Sets up Maker (1,000 Token A) and Taker (1,000 Token B).
-   - Maker calls `make` (deposit 10 Token A, asks 10 Token B, expiration $T = 10000$).
-   - Taker calls `take` at $T = 0$ (before deadline).
+   - Maker calls `make` (deposit 10 Token A, asks 10 Token B, expiration `T = 10000`).
+   - Taker calls `take` at `T = 0` (before deadline).
    - Verifies atomic swap: Taker receives 10 Token A, Maker receives 10 Token B, Taker retains 990 Token B.
    - Verifies Escrow and Vault accounts are closed and rent reclaimed.
 
 3. **`test_update_expiration`**:
-   - Maker creates Escrow with initial expiration $T = 500$.
-   - Maker calls `update` to extend expiration to $T = 1500$.
+   - Maker creates Escrow with initial expiration `T = 500`.
+   - Maker calls `update` to extend expiration to `T = 1500`.
    - Deserializes on-chain account state and confirms `expiration == 1500`.
 
 4. **`test_refund_before_expiration_fails`**:
-   - Maker creates Escrow with expiration $T = 10000$.
-   - Maker attempts `refund` at $T = 0$.
+   - Maker creates Escrow with expiration `T = 10000`.
+   - Maker attempts `refund` at `T = 0`.
    - Asserts transaction fails with error code corresponding to `EscrowNotExpired`.
 
 5. **`test_take_after_expiration_fails`**:
-   - Maker creates Escrow with expiration $T = 500$.
-   - LiteSVM Clock sysvar is warped to $T = 501$.
+   - Maker creates Escrow with expiration `T = 500`.
+   - LiteSVM Clock sysvar is warped to `T = 501`.
    - Taker attempts `take`.
    - Asserts transaction fails with error code corresponding to `EscrowExpired`.
 
