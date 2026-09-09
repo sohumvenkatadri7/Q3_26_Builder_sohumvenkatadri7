@@ -284,16 +284,8 @@ cargo test
 
 ### Test Scenarios Covered
 
-```
-running 5 tests
-test test_refund_before_expiration_fails ... ok
-test test_update_expiration              ... ok
-test test_make_and_refund               ... ok
-test test_take_after_expiration_fails   ... ok
-test test_make_and_take                 ... ok
+<img width="1312" height="466" alt="Screenshot 2026-09-06 005156" src="https://github.com/user-attachments/assets/13f19252-dd1e-461b-9b54-6a075dd3d98b" />
 
-test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.58s
-```
 
 1. **`test_make_and_refund`**:
    - Creates Mint A & Mint B, funds Maker ATA with 1,000 Token A.
