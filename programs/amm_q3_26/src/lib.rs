@@ -9,19 +9,22 @@ pub use constants::*;
 pub use instructions::*;
 pub use state::*;
 
-declare_id!("6KoUjko5kqLHaF31gdWGBihf8Pw8dUNte2hBpBEJveVe");
+declare_id!("6dZ7FPChZqKs14gMpnZtwwSYEUvC8iE5aT2Ay9cf8Mrw");
 
 #[program]
-pub mod amm_video {
+pub mod amm_q3_26 {
     use super::*;
 
     pub fn initialize(
         ctx: Context<Initialize>,
         seed: u64,
         fee: u16,
+        protocol_fee: u16,
+        treasury: Pubkey,
         authority: Option<Pubkey>,
     ) -> Result<()> {
-        ctx.accounts.init(seed, fee, authority, ctx.bumps)
+        ctx.accounts
+            .init(seed, fee, protocol_fee, treasury, authority, ctx.bumps)
     }
 
     pub fn deposit(ctx: Context<Deposit>, amount: u64, max_x: u64, max_y: u64) -> Result<()> {

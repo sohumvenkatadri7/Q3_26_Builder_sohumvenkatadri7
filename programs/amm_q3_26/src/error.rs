@@ -39,6 +39,10 @@ pub enum AmmError {
     InvalidPrecision,
     #[msg("Insufficient balance.")]
     InsufficientBalance,
+    #[msg("Protocol fee cannot exceed total fee.")]
+    InvalidProtocolFee,
+    #[msg("Invalid treasury address.")]
+    InvalidTreasury,
     #[msg("Zero balance.")]
     ZeroBalance,
 }

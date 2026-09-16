@@ -42,14 +42,14 @@ pub fn create_deposit_ix(
     let user_lp = associated_token::get_associated_token_address(&user, &mint_lp);
 
     Instruction::new_with_bytes(
-        amm_video::id(),
-        &amm_video::instruction::Deposit {
+        amm_q3_26::id(),
+        &amm_q3_26::instruction::Deposit {
             amount: 100_000_000,
             max_x: 200_000_000,
             max_y: 200_000_000,
         }
         .data(),
-        amm_video::accounts::Deposit {
+        amm_q3_26::accounts::Deposit {
             user,
             mint_x,
             mint_y,

@@ -1,12 +1,12 @@
 [package]
-name = "amm-video"
+name = "amm-q3-26"
 version = "0.1.0"
 description = "Created with Anchor"
 edition = "2021"
 
 [lib]
 crate-type = ["cdylib", "lib"]
-name = "amm_video"
+name = "amm_q3_26"
 
 [features]
 default = []

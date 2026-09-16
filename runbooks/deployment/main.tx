@@ -7,9 +7,9 @@ addon "svm" {
     network_id = input.network_id
 }
 
-action "deploy_amm_video" "svm::deploy_program" {
-    description = "Deploy amm_video program"
-    program = svm::get_program_from_anchor_project("amm_video") 
+action "deploy_amm_q3_26" "svm::deploy_program" {
+    description = "Deploy amm_q3_26 program"
+    program = svm::get_program_from_anchor_project("amm_q3_26") 
     authority = signer.authority
     payer = signer.payer
 }

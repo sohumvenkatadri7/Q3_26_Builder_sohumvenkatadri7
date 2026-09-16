@@ -6,7 +6,7 @@ resolution = true
 skip-lint = false
 
 [programs.localnet]
-amm_video = "6KoUjko5kqLHaF31gdWGBihf8Pw8dUNte2hBpBEJveVe"
+amm_q3_26 = "6dZ7FPChZqKs14gMpnZtwwSYEUvC8iE5aT2Ay9cf8Mrw"
 
 [provider]
 cluster = "localnet"
