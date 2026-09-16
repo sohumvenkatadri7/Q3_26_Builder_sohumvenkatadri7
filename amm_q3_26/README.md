@@ -291,8 +291,6 @@ test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
 ### Test Screenshot Space
 
-> Place your test execution screenshot in `./assets/test_screenshot.png` (or update the path below).
-
 ![AMM Test Results](./assets/test_screenshot.png)
 
 *Figure: LiteSVM Integration Test Suite Passing.*
