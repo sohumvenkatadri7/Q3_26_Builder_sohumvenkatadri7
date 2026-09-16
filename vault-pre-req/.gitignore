@@ -1,0 +1,13 @@
+.anchor
+.DS_Store
+target
+**/*.rs.bk
+node_modules
+test-ledger
+.yarn
+.surfpool
+VAULT_GUIDE.md
+ARCHITECTURE_DIAGRAM.md
+architecture_diagram.html
+VAULT_SUBMISSION_DOC.md
+vault_architecture.svg
