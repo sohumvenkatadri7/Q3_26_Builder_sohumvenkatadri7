@@ -184,16 +184,7 @@ cargo test
 
 ### Test Suite Execution Output
 
-```text
-running 5 tests
-test test_account_metas_structure ... ok
-test test_instruction_data_encoding ... ok
-test test_burn_to_earn_rewards_calculation ... ok
-test test_collection_level_counter_logic ... ok
-test test_pda_derivations ... ok
-
-test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
-```
+<img width="1122" height="260" alt="image" src="https://github.com/user-attachments/assets/ba9066b9-5acb-46ef-ba27-5edadacdbda1" />
 
 ---
 
